@@ -8,6 +8,10 @@ CREATE DATABASE cc1mb_202307793_postgresql;
 
 SET SESSION AUTHORIZATION uvv;
 
+CREATE SCHEMA lojas;
+
+ALTER USER "uvv" SET search_path = lojas, public;
+
 
 CREATE TABLE produtos (
     produto_id NUMERIC(38) NOT NULL,
