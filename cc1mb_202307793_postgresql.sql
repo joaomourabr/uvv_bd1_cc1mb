@@ -1,3 +1,6 @@
+
+
+
 DROP DATABASE IF EXISTS uvv;
 
 DROP USER IF EXISTS "JoaoM";
@@ -14,13 +17,22 @@ CREATE DATABASE uvv
   LC_COLLATE 'pt_BR.UTF-8'
   LC_CTYPE 'pt_BR.UTF-8'
   CONNECTION LIMIT -1;
+  
+
+psql -U JoaoM -d uvv
 
 
 SET SESSION AUTHORIZATION uvv;
 
+
+
 CREATE SCHEMA lojas;
 
-ALTER USER "uvv" SET search_path = lojas, public;
+SELECT CURRENT_SCHEMA();
+
+SET SEARCH_PATH TO lojas, "$user", public;
+
+ALTER USER JoaoM SET SEARCH_PATH TO lojas, "$user", public;
 
 
 CREATE TABLE produtos (
