@@ -216,3 +216,10 @@ ALTER TABLE pedidos_itens ADD CONSTRAINT pedidos_pedidos_itens_fk
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
     NOT DEFERRABLE;
+    
+ALTER TABLE pedidos
+    ADD CONSTRAINT status_pedido_check CHECK (status IN ('CANCELADO', 'COMPLETO', 'ABERTO', 'PAGO', 'REEMBOLSADO', 'ENVIADO'));
+    
+ALTER TABLE envios
+     ADD CONSTRAINT status_envio_check CHECK (status IN ('CRIADO', 'ENVIADO', 'TRANSITO', 'ENTREGUE'));
+
