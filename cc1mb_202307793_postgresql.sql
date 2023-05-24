@@ -223,3 +223,14 @@ ALTER TABLE pedidos
 ALTER TABLE envios
      ADD CONSTRAINT status_envio_check CHECK (status IN ('CRIADO', 'ENVIADO', 'TRANSITO', 'ENTREGUE'));
 
+ALTER TABLE produtos
+     ADD CONSTRAINT preco_negativo_check CHECK (preco_unitario >= 0);
+  
+ALTER TABLE estoques  
+    ADD CONSTRAINT quantidade_negativa_check CHECK (quantidade >= 0);
+    
+ALTER TABLE  pedidos_itens  
+    ADD CONSTRAINT quantidade_negativa_check CHECK (quantidade >= 0);
+    ADD CONSTRAINT preco_negativo_check CHECK (preco_unitario >= 0);
+  
+    
