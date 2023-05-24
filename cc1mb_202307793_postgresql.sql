@@ -1,6 +1,3 @@
-
-
-
 DROP DATABASE IF EXISTS uvv;
 
 DROP USER IF EXISTS "JoaoM";
@@ -19,13 +16,6 @@ CREATE DATABASE uvv
   CONNECTION LIMIT -1;
   
 
-psql -U JoaoM -d uvv
-
-
-SET SESSION AUTHORIZATION uvv;
-
-
-
 CREATE SCHEMA lojas;
 
 SELECT CURRENT_SCHEMA();
@@ -33,6 +23,8 @@ SELECT CURRENT_SCHEMA();
 SET SEARCH_PATH TO lojas, "$user", public;
 
 ALTER USER JoaoM SET SEARCH_PATH TO lojas, "$user", public;
+
+SET SESSION AUTHORIZATION computacao@raiz;
 
 
 CREATE TABLE produtos (
