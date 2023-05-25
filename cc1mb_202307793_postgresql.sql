@@ -6,7 +6,7 @@ DROP USER IF EXISTS joaom;
 
 CREATE USER joaom WITH
   CREATEDB INHERIT
-  LOGIN PASSWORD '2211';
+  PASSWORD '2211';
 
 
 CREATE DATABASE uvv
@@ -229,7 +229,12 @@ REFERENCES pedidos (pedido_id_)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
-    
+
+
+
+ALTER TABLE lojas
+    ADD CONSTRAINT endereco_check CHECK (COALESCE(endereco_web, '' ) <> '' OR COALESCE(endereco_fisico, '') <> '');
+ 
 ALTER TABLE pedidos
     ADD CONSTRAINT status_pedido_check CHECK (status IN ('CANCELADO', 'COMPLETO', 'ABERTO', 'PAGO', 'REEMBOLSADO', 'ENVIADO'));
     
@@ -247,5 +252,9 @@ ALTER TABLE  pedidos_itens
 
 ALTER TABLE  pedidos_itens
     ADD CONSTRAINT preco_negativo2_check CHECK (preco_unitario >= 0);
+
+
+
+
   
     
