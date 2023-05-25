@@ -233,7 +233,7 @@ NOT DEFERRABLE;
 
 
 ALTER TABLE lojas
-    ADD CONSTRAINT endereco_check CHECK (COALESCE(endereco_web, '' ) <> '' OR COALESCE(endereco_fisico, '') <> '');
+    ADD CONSTRAINT endereco_check CHECK (COALESCE (endereco_web, '' ) <> '' OR COALESCE(endereco_fisico, '') <> '');
  
 ALTER TABLE pedidos
     ADD CONSTRAINT status_pedido_check CHECK (status IN ('CANCELADO', 'COMPLETO', 'ABERTO', 'PAGO', 'REEMBOLSADO', 'ENVIADO'));
