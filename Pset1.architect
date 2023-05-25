@@ -52,7 +52,7 @@
     <folder id="FOLTAB12" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB14" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX13" populated="true" UUID="0fe3cbc8-30b8-43a2-a556-394605de8ef9" clustered="false" name="loja_id" physicalName="loja_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX13" populated="true" UUID="0fe3cbc8-30b8-43a2-a556-394605de8ef9" clustered="false" name="PK_loja" physicalName="pk_loja" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC14" populated="true" UUID="88b72d47-92a1-417d-a7b7-0abcf43c1237" ascendingOrDescending="UNSPECIFIED" column-ref="COL2" name="loja_id" physicalName="loja_id" />
     </index>
    </folder>
@@ -81,7 +81,7 @@
     <folder id="FOLTAB152" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB154" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX21" populated="true" UUID="18c25474-6d41-49f2-8e0f-a4465dc0c0c0" clustered="false" name="pedido_id" physicalName="pedido_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX21" populated="true" UUID="18c25474-6d41-49f2-8e0f-a4465dc0c0c0" clustered="false" name="PK_pedidos" physicalName="pk_pedidos" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC22" populated="true" UUID="fd7a99e9-e95b-4a80-8a55-597c7ab5233d" ascendingOrDescending="UNSPECIFIED" column-ref="COL16" name="pedido_id " physicalName="pedido_id_" />
     </index>
    </folder>
@@ -113,13 +113,13 @@
     <folder id="FOLTAB232" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB234" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX30" populated="true" UUID="d086b6c9-dc1e-4920-b9ee-9ee1e78f1f64" clustered="false" name="cliente_id" physicalName="cliente_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX30" populated="true" UUID="d086b6c9-dc1e-4920-b9ee-9ee1e78f1f64" clustered="false" name="PK_clientes" physicalName="pk_clientes" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC31" populated="true" UUID="e5d08eb4-9338-4e18-9719-7b9d96770602" ascendingOrDescending="UNSPECIFIED" column-ref="COL24" name="cliente_id" physicalName="cliente_id" />
     </index>
    </folder>
   </table>
   <table id="TAB32" populated="true" UUID="a000acda-3b2f-42ab-b3f8-ef48f98fdb1a" name="envios" objectType="TABLE" physicalName="envios" >
-   <remarks>Tabela sobre o envio de produtos </remarks>
+   <remarks>Tabela sobre o envio de produtos</remarks>
    <folder id="FOLTAB321" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL33" populated="true" UUID="e334bc5e-b74c-4895-a18a-1526a7f6d116" autoIncrement="false" autoIncrementSequenceName="envios_envio_id_seq" defaultValue="" name="envio_id" nullable="0" physicalName="envio_id" precision="38" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>PK da tabela. Número de ID do envio do produto pela loja</remarks>
@@ -131,7 +131,7 @@
      <remarks>FK da tabela clientes. Número de ID do cliente registrado na loja para onde o produto foi enviado</remarks>
     </column>
     <column id="COL36" populated="true" UUID="4e5d3772-6648-44f5-b5e1-44a6e3471bdc" autoIncrement="false" autoIncrementSequenceName="envios_emdereco_entrega_seq" defaultValue="" name="endereco_entrega" nullable="0" physicalName="endereco_entrega" precision="512" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>Mostra o endereço para aonde o produto enviado deve ser entregue  </remarks>
+     <remarks>Mostra o endereço para aonde o produto enviado deve ser entregue</remarks>
     </column>
     <column id="COL37" populated="true" UUID="e8b1c9fb-0e00-46bb-96a6-576c223f47f7" autoIncrement="false" autoIncrementSequenceName="envios_status_seq" defaultValue="" name="status" nullable="0" physicalName="status" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks>Mostra o status do envio do produto. Se ele foi recebido, recusado, etc.</remarks>
@@ -142,7 +142,7 @@
     <folder id="FOLTAB322" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB324" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX38" populated="true" UUID="fdb963fe-a362-41c2-9349-d677d0e5462f" clustered="false" name="envio_id" physicalName="envio_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX38" populated="true" UUID="fdb963fe-a362-41c2-9349-d677d0e5462f" clustered="false" name="PK_envio" physicalName="pk_envio" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC39" populated="true" UUID="bd1aac5b-fa95-4256-b072-13739f03864a" ascendingOrDescending="UNSPECIFIED" column-ref="COL33" name="envio_id" physicalName="envio_id" />
     </index>
    </folder>
@@ -183,7 +183,7 @@
     <folder id="FOLTAB402" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB404" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX50" populated="true" UUID="63f3e526-4048-4cf0-bb36-ea0a2b78669a" clustered="false" name="produto_id" physicalName="produto_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX50" populated="true" UUID="63f3e526-4048-4cf0-bb36-ea0a2b78669a" clustered="false" name="PK_produto" physicalName="pk_produto" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC51" populated="true" UUID="500693dc-bb50-4721-acc3-df4a6107c405" ascendingOrDescending="UNSPECIFIED" column-ref="COL41" name="produto_id" physicalName="produto_id" />
     </index>
    </folder>
@@ -209,7 +209,7 @@
     <folder id="FOLTAB522" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB524" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX57" populated="true" UUID="e1a5e4ce-d97a-4e58-918c-08117bdff973" clustered="false" name="estoque_id" physicalName="estoque_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX57" populated="true" UUID="e1a5e4ce-d97a-4e58-918c-08117bdff973" clustered="false" name="PK_estoques" physicalName="pk_estoques" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC58" populated="true" UUID="b5c36a59-431f-4cd5-8121-37581dac3f56" ascendingOrDescending="UNSPECIFIED" column-ref="COL53" name="estoque_id" physicalName="estoque_id" />
     </index>
    </folder>
@@ -217,11 +217,11 @@
   <table id="TAB59" populated="true" UUID="67c50a38-3ef1-49b8-b492-1135df8904df" name="pedidos_itens" objectType="TABLE" physicalName="pedidos_itens" >
    <remarks>Tabela com os itens pedidos pelos clientes</remarks>
    <folder id="FOLTAB591" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL60" populated="true" UUID="7738c3ee-5885-46a5-9af8-940c5466c5d3" autoIncrement="false" autoIncrementSequenceName="pedidos_pedido_id _seq_1" defaultValue="" name="pedido_id " nullable="0" physicalName="pedido_id" precision="38" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
-     <remarks>PFK da tabela pedidos. Mostra o número de qual foi o pedido feito </remarks>
+    <column id="COL60" populated="true" UUID="7738c3ee-5885-46a5-9af8-940c5466c5d3" autoIncrement="false" autoIncrementSequenceName="pedidos_itens_pedido_id_seq" defaultValue="" name="pedido_id " nullable="0" physicalName="pedido_id" precision="38" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
+     <remarks>PFK da tabela pedidos. Mostra o número de qual foi o pedido feito</remarks>
     </column>
     <column id="COL61" populated="true" UUID="645ff384-9658-4ce0-b017-bc2514b3898e" autoIncrement="false" autoIncrementSequenceName="pedidos_itens_produto_id_seq" defaultValue="" name="produto_id" nullable="0" physicalName="produto_id" precision="38" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
-     <remarks>PFK da tabela produtos. Número do produto pedido </remarks>
+     <remarks>PFK da tabela produtos. Número do produto pedido</remarks>
     </column>
     <column id="COL62" populated="true" UUID="a2463f03-f7b4-458b-ba68-6043059f21f8" autoIncrement="false" autoIncrementSequenceName="pedidos_itens_numero da linha_seq" defaultValue="" name="numero_da_linha" nullable="0" physicalName="numero_da_linha" precision="38" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>Número da linha onde o pedido foi feito</remarks>
@@ -230,7 +230,7 @@
      <remarks>O preço de cada pedido feito na loja</remarks>
     </column>
     <column id="COL64" populated="true" UUID="9bf7babc-c2a1-4dc3-8c0f-afb591b342ad" autoIncrement="false" autoIncrementSequenceName="pedidos_itens_quantidade_seq" defaultValue="" name="quantidade" nullable="0" physicalName="quantidade" precision="38" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
-     <remarks>A quantidade de produtos pedidos na loja </remarks>
+     <remarks>A quantidade de produtos pedidos na loja</remarks>
     </column>
     <column id="COL65" populated="true" UUID="8b1af866-94e3-4d31-8229-4e815db894be" autoIncrement="false" autoIncrementSequenceName="pedidos_itens_envio_id_seq" defaultValue="" name="envio_id" nullable="1" physicalName="envio_id" precision="38" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks>FK da tabela envios. Mostra o número do envio do produto pela loja</remarks>
@@ -241,7 +241,7 @@
     <folder id="FOLTAB592" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB594" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX66" populated="true" UUID="d68ac477-8d82-445d-bd9c-e5ec3dae6d43" clustered="false" name="pedido_id" physicalName="pedido_id" primaryKeyIndex="true" unique="false" >
+    <index id="IDX66" populated="true" UUID="d68ac477-8d82-445d-bd9c-e5ec3dae6d43" clustered="false" name="PK_pedidos_itens" physicalName="pk_pedidos_itens" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC67" populated="true" UUID="3a80ed8e-9996-49b7-8155-be4353be87bb" ascendingOrDescending="UNSPECIFIED" column-ref="COL60" name="pedido_id " physicalName="pedido_id" />
      <index-column id="IDC68" populated="true" UUID="5f2fd602-4b95-4f12-bcb7-c139b946d9fd" ascendingOrDescending="UNSPECIFIED" column-ref="COL61" name="produto_id" physicalName="produto_id" />
     </index>
