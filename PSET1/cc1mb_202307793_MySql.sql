@@ -2,10 +2,11 @@ DROP DATABASE IF EXISTS uvv;
 
 DROP USER IF EXISTS joaom;
 
-CREATE USER 'joaom'@'localhost' IDENTIFIED BY '2211';
+CREATE USER 'joaom'@'%' IDENTIFIED BY '2211';
 
 CREATE DATABASE uvv;
-GRANT ALL PRIVILEGES ON uvv.* TO 'joaom'@'localhost';
+GRANT ALL PRIVILEGES ON uvv.* TO 'joaom'@'%';
+
 
 USE uvv;
 
