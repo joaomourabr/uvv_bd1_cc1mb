@@ -1,4 +1,8 @@
+--Comando para apagar o banco de dados do mesmo nome
+
 DROP DATABASE IF EXISTS uvv;
+
+--Comando para apagar o usuario do mesmo nome
 
 DROP USER IF EXISTS joaom;
 
