@@ -248,7 +248,7 @@ ON UPDATE NO ACTION;
 
 ALTER TABLE pedidos_itens ADD CONSTRAINT pedidos_pedidos_itens_fk
 FOREIGN KEY (pedido_id)
-REFERENCES pedidos (pedido_id_)
+REFERENCES pedidos (pedido_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 ALTER TABLE produtos
