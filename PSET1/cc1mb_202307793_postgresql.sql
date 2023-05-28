@@ -1,4 +1,6 @@
-/* Script para criacao do banco de dados das lojas uvv no postgresql. Essa primeira parte e destinada a configuracao e criacao do usuario e do banco de dados. */
+/* Script para criacao do banco de dados das lojas uvv no postgresql. 
+Essa primeira parte e destinada a configuracao e criacao do usuario 
+e do banco de dados. */
 
 
 
