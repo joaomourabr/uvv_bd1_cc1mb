@@ -312,70 +312,112 @@ para a checagem dos dados inseridos nas tabelas */
 
 --Comandos para a criacao das constraints de checagem 
 
-
+--Constraint para checar se pelo menos um dos campos endereco_web ou endereco_fisico esta preenchido 
 
 ALTER TABLE lojas
     ADD CONSTRAINT endereco_check CHECK (endereco_web IS NOT NULL OR endereco_fisico IS NOT NULL);
  
+ --Constraint para apenas deixar essas palavras entrarem no status da tabela pedidos
+ 
 ALTER TABLE pedidos
     ADD CONSTRAINT status_pedido_check CHECK (status IN ('CANCELADO', 'COMPLETO', 'ABERTO', 'PAGO', 'REEMBOLSADO', 'ENVIADO'));
     
+--Constraint para apenas deixar essas palavras entrarem no status da tabela envios
+    
 ALTER TABLE envios
      ADD CONSTRAINT status_envio_check CHECK (status IN ('CRIADO', 'ENVIADO', 'TRANSITO', 'ENTREGUE'));
+     
+--Constraint para checar se o preco da tabela produtos e negativo
 
 ALTER TABLE produtos
      ADD CONSTRAINT preco_negativo_check CHECK (preco_unitario >= 0);
+     
+--Constraint para checar se a quantidade da tabela estoques e negativo
   
 ALTER TABLE estoques  
     ADD CONSTRAINT quantidade_negativa_check CHECK (quantidade >= 0);
     
+--Constraint para checar se a quantidade da tabela pedidos_itens e negativo   
+   
 ALTER TABLE  pedidos_itens  
     ADD CONSTRAINT quantidade_negativa2_check CHECK (quantidade >= 0);
+    
+--Constraint para checar se o preco da tabela pedidos_itens e negativo    
 
 ALTER TABLE  pedidos_itens
     ADD CONSTRAINT preco_negativo2_check CHECK (preco_unitario >= 0);
     
+--Constraint pra checar se o numero de id e negativo     
+    
 ALTER TABLE produtos
     ADD CONSTRAINT produto_id_check CHECK (produto_id >= 0);
     
+--Constraint pra checar se o numero de id e negativo 
+    
 ALTER TABLE clientes
     ADD CONSTRAINT cliente_id_check CHECK (cliente_id >= 0);
-    
+
+--Constraint pra checar se o numero de id e negativo 
+
 ALTER TABLE lojas
     ADD CONSTRAINT loja_id_check CHECK (loja_id >= 0);
-    
+
+--Constraint pra checar se o numero de id e negativo 
+
 ALTER TABLE estoques
     ADD CONSTRAINT estoque_id_check CHECK (estoque_id >= 0);
-    
+
+--Constraint pra checar se o numero de id e negativo            
+
 ALTER TABLE estoques
     ADD CONSTRAINT loja_id2_check CHECK (loja_id >= 0);
+    
+--Constraint pra checar se o numero de id e negativo     
     
 ALTER TABLE estoques
     ADD CONSTRAINT produto_id2_check CHECK (produto_id >= 0);
     
+--Constraint pra checar se o numero de id e negativo     
+    
 ALTER TABLE envios 
     ADD CONSTRAINT envio_id2_check CHECK (envio_id >= 0);
+    
+--Constraint pra checar se o numero de id e negativo     
     
 ALTER TABLE envios 
     ADD CONSTRAINT loja_id3_check CHECK (loja_id >= 0);
     
+--Constraint pra checar se o numero de id e negativo     
+    
 ALTER TABLE envios 
     ADD CONSTRAINT cliente_id2_check CHECK (cliente_id >= 0);  
+    
+--Constraint pra checar se o numero de id e negativo     
     
 ALTER TABLE pedidos 
     ADD CONSTRAINT pedido_id_check CHECK (pedido_id >= 0);
     
+--Constraint pra checar se o numero de id e negativo     
+    
 ALTER TABLE pedidos 
     ADD CONSTRAINT cliente_id3_check CHECK (cliente_id >= 0);  
+    
+--Constraint pra checar se o numero de id e negativo     
     
 ALTER TABLE pedidos 
    ADD CONSTRAINT loja_id3_check CHECK (loja_id  >= 0);   
    
+--Constraint pra checar se o numero de id e negativo    
+   
 ALTER TABLE pedidos_itens 
     ADD CONSTRAINT pedido_id2_check CHECK (pedido_id >= 0);
     
+--Constraint pra checar se o numero de id e negativo     
+    
 ALTER TABLE pedidos_itens  
     ADD CONSTRAINT produto_id3_check CHECK (produto_id >= 0); 
+ 
+--Constraint pra checar se o numero de id e negativo  
  
 ALTER TABLE pedidos_itens  
     ADD CONSTRAINT envio_id3_check CHECK (envio_id  >= 0);
