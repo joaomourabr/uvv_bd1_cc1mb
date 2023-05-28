@@ -200,7 +200,7 @@ CREATE TABLE pedidos (
 
 
 COMMENT ON TABLE pedidos IS 'Tabela sobre os pedidos dos clientes as lojas';
-COMMENT ON COLUMN pedidos.pedido_id_ IS 'Primary Key da tabela. Mostra o numero de identificação dos pedidos de cada cliente';
+COMMENT ON COLUMN pedidos.pedido_id IS 'Primary Key da tabela. Mostra o numero de identificação dos pedidos de cada cliente';
 COMMENT ON COLUMN pedidos.data_hora IS 'Data e a hora que o pedido do cliente foi realizado';
 COMMENT ON COLUMN pedidos.cliente_id IS 'Foreign Key da tabela clientes.  Mostra o número de ID do cliente que fez o pedido';
 COMMENT ON COLUMN pedidos.status IS 'Status de envio do pedido do cliente. Se foi enviado, está sendo preparado, etc.';
@@ -296,7 +296,7 @@ NOT DEFERRABLE;
 
 ALTER TABLE pedidos_itens ADD CONSTRAINT pedidos_pedidos_itens_fk
 FOREIGN KEY (pedido_id)
-REFERENCES pedidos (pedido_id_)
+REFERENCES pedidos (pedido_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
