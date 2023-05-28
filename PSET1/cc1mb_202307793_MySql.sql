@@ -152,17 +152,17 @@ ALTER TABLE envios MODIFY COLUMN status VARCHAR(15) COMMENT 'cusado, etc.';
 
 
 CREATE TABLE pedidos (
-                pedido_id_ NUMERIC(38) NOT NULL,
+                pedido_id NUMERIC(38) NOT NULL,
                 data_hora DATETIME NOT NULL,
                 cliente_id NUMERIC(38) NOT NULL,
                 status VARCHAR(15) NOT NULL,
                 loja_id NUMERIC(38) NOT NULL,
-                PRIMARY KEY (pedido_id_)
+                PRIMARY KEY (pedido_id)
 );
 
 ALTER TABLE pedidos COMMENT 'Tabela sobre os pedidos dos clientes as lojas';
 
-ALTER TABLE pedidos MODIFY COLUMN pedido_id_ NUMERIC(38) COMMENT 'pedidos de cada cliente';
+ALTER TABLE pedidos MODIFY COLUMN pedido_id NUMERIC(38) COMMENT 'pedidos de cada cliente';
 
 ALTER TABLE pedidos MODIFY COLUMN data_hora TIMESTAMP COMMENT 'Data e a hora que o pedido do cliente foi realizado';
 
