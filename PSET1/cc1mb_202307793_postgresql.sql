@@ -15,7 +15,7 @@ DROP USER IF EXISTS joaom;
 --Comando para criar o usuario com as permissoes
 
 CREATE USER joaom WITH
-  CREATEDB INHERIT
+  CREATEDB 
   PASSWORD '2211';
 
 --Comando para criar o bd com as configuracoes do pset
