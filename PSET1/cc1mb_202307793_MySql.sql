@@ -1,12 +1,26 @@
+/* Script para criacao do banco de dados das lojas uvv no MySql 
+Essa primeira parte e destinada a configuracao e criacao do usuario 
+e do banco de dados. A principal diferenca e que no MySql nao existem 
+schemas*/
+
+--Comando para apagar o banco de dados do mesmo nome
+
 DROP DATABASE IF EXISTS uvv;
+
+--Comando para apagar o usuario do mesmo nome
 
 DROP USER IF EXISTS joaom;
 
+--Comando para criar o usuario com as permissoes
+
 CREATE USER 'joaom'@'%' IDENTIFIED BY '2211';
+
+--Comando para criar o bd 
 
 CREATE DATABASE uvv;
 GRANT ALL PRIVILEGES ON uvv.* TO 'joaom'@'%';
 
+--Comando para "trocar" a conexao e o script rodar sem senha
 
 USE uvv;
 
