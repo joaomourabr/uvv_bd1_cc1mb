@@ -1,4 +1,4 @@
--- Script para criacao do banco de dados das lojas uvv no postgresql
+/* Script para criacao do banco de dados das lojas uvv no postgresql. Essa primeira parte e destinada a configuracao e criacao do usuario e do banco de dados. */
 
 
 
@@ -39,7 +39,9 @@ ALTER USER joaom SET SEARCH_PATH TO lojas, "$user", public;
 
 SET SEARCH_PATH TO lojas, "$user", public;
 
-
+/*Fim da parte da cricao do banco de dados e usuario. Apos isso digitei
+os comandos de criacao de tabelas, os comentarios das colunas e tabelas 
+alem de identificar as PKs e FKs*/
 
 --Comando para criar a tabela produtos e suas colunas
 
@@ -300,6 +302,10 @@ REFERENCES pedidos (pedido_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
+
+
+/*Fim dos comando da criacao das tabelas e suas configuracoes. Agora temos as constraints
+para a checagem dos dados inseridos nas tabelas */
 
 
 --Comandos para a criacao das constraints de checagem 
