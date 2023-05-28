@@ -251,66 +251,55 @@ FOREIGN KEY (pedido_id)
 REFERENCES pedidos (pedido_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
+
+
+
+
 ALTER TABLE produtos
-    ADD CONSTRAINT preco_negativo_check CHECK (preco_unitario >= 0);
+    ADD CONSTRAINT preco_negativo_check CHECK (preco_unitario >= 0),
+    ADD CONSTRAINT produto_id_check CHECK (produto_id >= 0);
 
 ALTER TABLE estoques
-    ADD CONSTRAINT quantidade_negativa_check CHECK (quantidade >= 0);
+    ADD CONSTRAINT quantidade_negativa_check CHECK (quantidade >= 0),
+    ADD CONSTRAINT estoque_id_check CHECK (estoque_id >= 0),
+    ADD CONSTRAINT loja_id2_check CHECK (loja_id >= 0),
+    ADD CONSTRAINT produto_id2_check CHECK (produto_id >= 0);
 
 ALTER TABLE pedidos_itens
     ADD CONSTRAINT quantidade_negativa2_check CHECK (quantidade >= 0),
-    ADD CONSTRAINT preco_negativo2_check CHECK (preco_unitario >= 0);
+    ADD CONSTRAINT preco_negativo2_check CHECK (preco_unitario >= 0),
+    ADD CONSTRAINT pedido_id2_check CHECK (pedido_id >= 0),
+    ADD CONSTRAINT produto_id3_check CHECK (produto_id >= 0),
+    ADD CONSTRAINT envio_id3_check CHECK (envio_id  >= 0);
 
 ALTER TABLE lojas
-    ADD CONSTRAINT endereco_check CHECK (endereco_web IS NOT NULL OR endereco_fisico IS NOT NULL);
+    ADD CONSTRAINT endereco_check CHECK (endereco_web IS NOT NULL OR endereco_fisico IS NOT NULL),
+    ADD CONSTRAINT loja_id_check CHECK (loja_id >= 0);
+    
 
 ALTER TABLE pedidos
-    ADD CONSTRAINT status_pedido_check CHECK (status IN ('CANCELADO', 'COMPLETO', 'ABERTO', 'PAGO', 'REEMBOLSADO', 'ENVIADO'));
+    ADD CONSTRAINT status_pedido_check CHECK (status IN ('CANCELADO', 'COMPLETO', 'ABERTO', 'PAGO', 'REEMBOLSADO', 'ENVIADO')),
+    ADD CONSTRAINT pedido_id_check CHECK (pedido_id >= 0),
+    ADD CONSTRAINT cliente_id3_check CHECK (cliente_id >= 0), 
+    ADD CONSTRAINT loja_id3_check CHECK (loja_id  >= 0);
 
 ALTER TABLE envios
-    ADD CONSTRAINT status_envio_check CHECK (status IN ('CRIADO', 'ENVIADO', 'TRANSITO', 'ENTREGUE'));
-    
-ALTER TABLE produtos
-    ADD CONSTRAINT produto_id_check CHECK (produto_id >= 0);
-    
+    ADD CONSTRAINT status_envio_check CHECK (status IN ('CRIADO', 'ENVIADO', 'TRANSITO', 'ENTREGUE')),
+    ADD CONSTRAINT envio_id2_check CHECK (envio_id >= 0),
+    ADD CONSTRAINT loja_id3_check CHECK (loja_id >= 0),
+    ADD CONSTRAINT cliente_id2_check CHECK (cliente_id >= 0);  
+ 
 ALTER TABLE clientes
     ADD CONSTRAINT cliente_id_check CHECK (cliente_id >= 0);
     
-ALTER TABLE lojas
-    ADD CONSTRAINT loja_id_check CHECK (loja_id >= 0);
+
     
-ALTER TABLE estoques
-    ADD CONSTRAINT estoque_id_check CHECK (estoque_id >= 0);
+
+
     
-ALTER TABLE estoques
-    ADD CONSTRAINT loja_id2_check CHECK (loja_id >= 0);
+
+
+
+       
     
-ALTER TABLE estoques
-    ADD CONSTRAINT produto_id2_check CHECK (produto_id >= 0);
     
-ALTER TABLE envios 
-    ADD CONSTRAINT envio_id2_check CHECK (envio_id >= 0);
-    
-ALTER TABLE envios 
-    ADD CONSTRAINT loja_id3_check CHECK (loja_id >= 0);
-    
-ALTER TABLE envios 
-    ADD CONSTRAINT cliente_id2_check CHECK (cliente_id >= 0);  
-    
-ALTER TABLE pedidos 
-    ADD CONSTRAINT pedido_id_check CHECK (pedido_id >= 0);
-    
-ALTER TABLE pedidos 
-    ADD CONSTRAINT cliente_id3_check CHECK (cliente_id >= 0);  
-    
-ALTER TABLE pedidos 
-   ADD CONSTRAINT loja_id3_check CHECK (loja_id  >= 0);   
-   
-ALTER TABLE pedidos_itens 
-    ADD CONSTRAINT pedido_id2_check CHECK (pedido_id >= 0);
-    
-ALTER TABLE pedidos_itens  
-    ADD CONSTRAINT produto_id3_check CHECK (produto_id >= 0); 
- 
-ALTER TABLE pedidos_itens  
-    ADD CONSTRAINT envio_id3_check CHECK (envio_id  >= 0);
