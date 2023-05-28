@@ -24,6 +24,14 @@ GRANT ALL PRIVILEGES ON uvv.* TO 'joaom'@'%';
 
 USE uvv;
 
+/*Fim da parte da cricao do banco de dados e usuario. Apos isso digitei
+os comandos de criacao de tabelas, os comentarios das colunas e tabelas 
+alem de identificar as PKs e FKs. Uma das diferencas do postgres foi a 
+forma de como se faz os comentario*/
+
+
+--Comando para criar a tabela produtos e suas colunas
+
 
 CREATE TABLE produtos (
                 produto_id NUMERIC(38) NOT NULL,
@@ -37,6 +45,10 @@ CREATE TABLE produtos (
                 imagem_ultima_atualizacao DATE,
                 PRIMARY KEY (produto_id)
 );
+
+
+--Comandos para criar comentarios da tabela
+
 
 ALTER TABLE produtos COMMENT 'Tabela sobre os produtos vendidos na loja';
 
@@ -59,6 +71,9 @@ ALTER TABLE produtos MODIFY COLUMN imagem_charset VARCHAR(512) COMMENT 'Charset 
 ALTER TABLE produtos MODIFY COLUMN imagem_ultima_atualizacao DATE COMMENT 'A data da ultima atualização que a imagem do produto teve';
 
 
+--Comando para criar a tabela clientes e suas colunas
+
+
 CREATE TABLE clientes (
                 cliente_id NUMERIC(38) NOT NULL,
                 email VARCHAR(255) NOT NULL,
@@ -68,6 +83,10 @@ CREATE TABLE clientes (
                 telefone_3 VARCHAR(20),
                 PRIMARY KEY (cliente_id)
 );
+
+
+--Comandos para criar comentarios da tabela
+
 
 ALTER TABLE clientes COMMENT 'Tabela com os dados dos clientes cadastrados nas lojas';
 
@@ -84,6 +103,9 @@ ALTER TABLE clientes MODIFY COLUMN telefone_2 VARCHAR(20) COMMENT 'Opção núme
 ALTER TABLE clientes MODIFY COLUMN telefone_3 VARCHAR(20) COMMENT 'Opção número 3 de telefone do cliente';
 
 
+--Comando para criar a tabela lojas e suas colunas
+
+
 CREATE TABLE lojas (
                 loja_id NUMERIC(38) NOT NULL,
                 nome VARCHAR(255) NOT NULL,
@@ -98,6 +120,10 @@ CREATE TABLE lojas (
                 logo_ultima_atualizacao DATE,
                 PRIMARY KEY (loja_id)
 );
+
+
+--Comandos para criar comentarios da tabela
+
 
 ALTER TABLE lojas COMMENT 'Tabela sobre as lojas registradas';
 
@@ -124,6 +150,9 @@ ALTER TABLE lojas MODIFY COLUMN logo_charset VARCHAR(512) COMMENT 'O ChARSET do 
 ALTER TABLE lojas MODIFY COLUMN logo_ultima_atualizacao DATE COMMENT 'Data de quando a última alteração da logo foi feita';
 
 
+--Comando para criar a tabela estoques e suas colunas
+
+
 CREATE TABLE estoques (
                 estoque_id NUMERIC(38) NOT NULL,
                 loja_id NUMERIC(38) NOT NULL,
@@ -131,6 +160,10 @@ CREATE TABLE estoques (
                 quantidade NUMERIC(38) NOT NULL,
                 PRIMARY KEY (estoque_id)
 );
+
+
+--Comandos para criar comentarios da tabela
+
 
 ALTER TABLE estoques COMMENT 'Tabela sobre os estoques da loja';
 
@@ -143,6 +176,9 @@ ALTER TABLE estoques MODIFY COLUMN produto_id NUMERIC(38) COMMENT 'ue';
 ALTER TABLE estoques MODIFY COLUMN quantidade NUMERIC(38) COMMENT 'Número da quantidade de produtos tem naquele estoque';
 
 
+--Comando para criar a tabela envios e suas colunas
+
+
 CREATE TABLE envios (
                 envio_id NUMERIC(38) NOT NULL,
                 loja_id NUMERIC(38) NOT NULL,
@@ -151,6 +187,10 @@ CREATE TABLE envios (
                 status VARCHAR(15) NOT NULL,
                 PRIMARY KEY (envio_id)
 );
+
+
+--Comandos para criar comentarios da tabela
+
 
 ALTER TABLE envios COMMENT 'Tabela sobre o envio de produtos';
 
@@ -165,6 +205,9 @@ ALTER TABLE envios MODIFY COLUMN endereco_entrega VARCHAR(512) COMMENT 'egue';
 ALTER TABLE envios MODIFY COLUMN status VARCHAR(15) COMMENT 'cusado, etc.';
 
 
+--Comando para criar a tabela pedidos e suas colunas
+
+
 CREATE TABLE pedidos (
                 pedido_id NUMERIC(38) NOT NULL,
                 data_hora DATETIME NOT NULL,
@@ -173,6 +216,10 @@ CREATE TABLE pedidos (
                 loja_id NUMERIC(38) NOT NULL,
                 PRIMARY KEY (pedido_id)
 );
+
+
+--Comandos para criar comentarios da tabela
+
 
 ALTER TABLE pedidos COMMENT 'Tabela sobre os pedidos dos clientes as lojas';
 
@@ -187,6 +234,9 @@ ALTER TABLE pedidos MODIFY COLUMN status VARCHAR(15) COMMENT 'endo preparado, et
 ALTER TABLE pedidos MODIFY COLUMN loja_id NUMERIC(38) COMMENT 'edido foi realizado';
 
 
+--Comando para criar a tabela pedidos_itens e suas colunas
+
+
 CREATE TABLE pedidos_itens (
                 pedido_id NUMERIC(38) NOT NULL,
                 produto_id NUMERIC(38) NOT NULL,
@@ -196,6 +246,10 @@ CREATE TABLE pedidos_itens (
                 envio_id NUMERIC(38),
                 PRIMARY KEY (pedido_id, produto_id)
 );
+
+
+--Comandos para criar comentarios da tabela
+
 
 ALTER TABLE pedidos_itens COMMENT 'Tabela com os itens pedidos pelos clientes';
 
@@ -210,6 +264,9 @@ ALTER TABLE pedidos_itens MODIFY COLUMN preco_unitario NUMERIC(10, 2) COMMENT 'O
 ALTER TABLE pedidos_itens MODIFY COLUMN quantidade NUMERIC(38) COMMENT 'A quantidade de produtos pedidos na loja';
 
 ALTER TABLE pedidos_itens MODIFY COLUMN envio_id NUMERIC(38) COMMENT 'a loja';
+
+
+--Comandos para a criacao das FKS
 
 
 ALTER TABLE estoques ADD CONSTRAINT produtos_estoques_fk
@@ -266,6 +323,13 @@ REFERENCES pedidos (pedido_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
+
+/*Fim dos comando da criacao das tabelas e suas configuracoes. Agora temos as constraints
+para a checagem dos dados inseridos nas tabelas. A diferenca do postgres e que as constraints
+podem ser agrupadas em alter table da mesma tabela */
+
+
+--Comandos para a criacao das constraints de checagem 
 
 
 
